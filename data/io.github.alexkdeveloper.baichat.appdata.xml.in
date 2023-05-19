@@ -3,7 +3,7 @@
 	<id>io.github.alexkdeveloper.baichat.desktop</id>
 	<metadata_license>CC0-1.0</metadata_license>
 	<project_license>GPL-3.0-or-later</project_license>
-	<name>BAIChat</name>
+	<name>BAI Chat</name>
 	<summary>Chat with GPT</summary>
 	<developer_name>Alex K</developer_name>
 	<content_rating type="oars-1.1"/>

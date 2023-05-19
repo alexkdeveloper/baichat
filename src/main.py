@@ -43,7 +43,7 @@ class BaichatApplication(Adw.Application):
     def on_about_action(self, widget, _):
         about = Adw.AboutWindow(
             transient_for=self.props.active_window,
-            application_name="BAIChat",
+            application_name="BAI Chat",
             application_icon="io.github.alexkdeveloper.baichat",
             developer_name="Alex K",
             developers=["Alex K https://github.com/alexkdeveloper/baichat"],

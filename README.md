@@ -1,4 +1,4 @@
-# BAIChat
+# BAI Chat
 
 Chat with GPT
 
