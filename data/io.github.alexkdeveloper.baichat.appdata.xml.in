@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+	<id>io.github.alexkdeveloper.baichat.desktop</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>GPL-3.0-or-later</project_license>
+	<name>BAIChat</name>
+	<summary>Chat with GPT</summary>
+	<developer_name>Alex K</developer_name>
+	<content_rating type="oars-1.1"/>
+	<description>
+	  <p>Chat with GPT</p>
+	</description>
+	<screenshots>
+	  <screenshot width="472" height="622">
+		<caption>Screenshot of main page</caption>
+		<image type="source">https://raw.githubusercontent.com/alexkdeveloper/baichat/main/data/screenshot.png</image>
+		</screenshot>
+	</screenshots>
+	<url type="bugtracker">https://github.com/alexkdeveloper/baichat/issues</url>
+	<url type="help">https://github.com/alexkdeveloper/baichat//issues</url>
+	<url type="homepage">https://github.com/alexkdeveloper/baichat/</url>
+
+	<kudos>
+		<kudo>HiDpiIcon</kudo>
+		<kudo>ModernToolkit</kudo>
+	</kudos>
+
+	<requires>
+		<display_length compare="ge">360</display_length>
+	</requires>
+
+	<categories>
+		<category>Utility</category>
+	</categories>
+
+	<recommends>
+		<control>keyboard</control>
+		<control>pointing</control>
+		<control>touch</control>
+	</recommends>
+
+	<keywords>
+		<keyword>Bavarder</keyword>
+	  <keyword>Chat</keyword>
+		<keyword>GPT</keyword>
+	  <keyword>ChatGPT</keyword>
+	  <keyword>AI</keyword>
+		<keyword>OpenAI</keyword>
+	</keywords>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/alexkdeveloper/baichat/">
+    <file preprocess="xml-stripblanks">ui/window.ui</file>
+    <file preprocess="xml-stripblanks" alias="gtk/help-overlay.ui">ui/help-overlay.ui</file>
+    <file>style.css</file>
+  </gresource>
+  <gresource prefix="/io/github/alexkdeveloper/baichat/icons/scalable/actions/">
+    <file preprocess="xml-stripblanks" alias="paper-plane-symbolic.svg">icons/scalable/actions/paper-plane-symbolic.svg</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,129 @@
+using Gtk 4.0;
+using Adw 1;
+
+template BaichatWindow : Adw.ApplicationWindow {
+
+  title: _("BAIChat");
+  default-width: 350;
+  default-height: 500;
+  
+  ShortcutController {
+    Shortcut {
+      trigger: "<primary>q";
+      action: "action(window.close)";
+    }
+  }
+
+  Adw.ToastOverlay toast_overlay {
+    Box {
+      orientation: vertical;
+      vexpand: true;
+      hexpand: true;
+      Adw.HeaderBar {
+        [end]
+        MenuButton {
+          primary: true;
+          menu-model: main-menu;
+          icon-name: "open-menu-symbolic";
+          tooltip-text: _("Main Menu");
+        }
+        styles ["flat"]
+      }
+
+      Adw.Banner banner {
+        title: _("No network connection");
+        revealed: false;
+      }
+
+      Box main {
+        orientation: vertical;
+        vexpand: true;
+        hexpand: true;
+        margin-top: 0;
+        margin-bottom: 24;
+        margin-start: 24;
+        margin-end: 24;
+        spacing: 12;
+
+        Adw.PreferencesGroup prompt_group {
+
+          Box {
+            orientation: vertical;
+            hexpand: true;
+            vexpand: true;
+
+            styles ["card", "text-box"]
+
+            ScrolledWindow {
+              margin-top:12;
+              margin-bottom:0;
+              margin-start:12;
+              margin-end:12;
+              styles ["scrolled-window"]
+
+              TextView prompt_text_view {
+                wrap-mode: word_char;
+                hexpand: true;
+                vexpand: true;
+                buffer: TextBuffer { };
+                //key-press => on_key_press_event();
+
+              }
+            }
+            Box {
+                hexpand: true;
+                halign: end;
+
+              styles ["toolbar"]
+              Button {
+                sensitive: false;
+                icon-name: "edit-copy-symbolic";
+                tooltip-text: _("Copy to Clipboard");
+                action-name: "app.copy_prompt";
+              }
+              Button ask_button {
+                visible: true;
+                sensitive: false;
+                icon-name: "paper-plane-symbolic";
+                tooltip-text: _("Ask");
+                hexpand: true;
+                halign: end;
+                action-name: "app.ask";
+                styles ["suggested-action", "circular"]
+              }
+              Button wait_button {
+                visible: false;
+                sensitive: false;
+                tooltip-text: _("Wait");
+                styles ["suggested-action", "circular"]
+                Spinner spinner {
+                  margin-top: 8;
+                  margin-bottom: 8;
+                  margin-start: 8;
+                  margin-end: 8;
+                  styles ["suggested-action", "circular"]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+menu main-menu {
+  section {
+  
+    item {
+      label: _("Keyboard Shortcuts");
+      action: "win.show-help-overlay";
+    }
+
+    item {
+      label: _("About Bavarder");
+      action: "app.about";
+    }
+  }
+}

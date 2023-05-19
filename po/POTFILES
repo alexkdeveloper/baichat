@@ -1,0 +1,7 @@
+data/io.github.alexkdeveloper.baichat.desktop.in
+data/io.github.alexkdeveloper.baichat.appdata.xml.in
+data/io.github.alexkdeveloper.baichat.gschema.xml
+data/ui/help-overlay.ui
+data/ui/window.blp
+src/main.py
+src/window.py
