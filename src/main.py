@@ -2,7 +2,6 @@
 
 import sys
 import gi
-import sys
 import threading
 import socket
 
