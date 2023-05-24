@@ -85,10 +85,13 @@ class BaichatApplication(Adw.Application):
 
     def on_ask_action(self, widget, _):
 
+        self.prompt = self.win.prompt_text_view.get_buffer().props.text
+        if self.prompt == "" or self.prompt is None: 
+           return
+            
         self.win.spinner.start()
         self.win.ask_button.set_visible(False)
         self.win.wait_button.set_visible(True)
-        self.prompt = self.win.prompt_text_view.get_buffer().props.text
 
         def thread_run():
             response = self.ask(self.prompt)
