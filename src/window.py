@@ -9,6 +9,7 @@ class BaichatWindow(Adw.ApplicationWindow):
     __gtype_name__ = "BaichatWindow"
 
     toast_overlay = Gtk.Template.Child()
+    scrolled_window = Gtk.Template.Child()
     prompt_text_view = Gtk.Template.Child()
     spinner = Gtk.Template.Child()
     ask_button = Gtk.Template.Child()

@@ -30,6 +30,7 @@ class BaichatApplication(Adw.Application):
         self.create_action("copy_prompt", self.on_copy_prompt_action)
         self.create_action("ask", self.on_ask_action, ["<primary>Return"])    
         self.resp = ''
+        self.pos = 0
 
     def do_activate(self):
         self.win = self.props.active_window
@@ -92,6 +93,8 @@ class BaichatApplication(Adw.Application):
         self.win.ask_button.set_visible(False)
         self.win.wait_button.set_visible(True)
 
+        self.pos = self.win.scrolled_window.get_vadjustment().get_value()
+
         def thread_run():
             response = self.ask(self.prompt)
             GLib.idle_add(cleanup, response)
@@ -105,8 +108,16 @@ class BaichatApplication(Adw.Application):
             self.resp = self.prompt + '\n\n******\n\n' + response + '\n\n******\n\n'
             self.win.prompt_text_view.get_buffer().set_text(self.resp)
 
+            GLib.timeout_add(1000, self.scroll_to_last_position)
+
         t = threading.Thread(target=thread_run)
         t.start()
+
+    def scroll_to_last_position(self):
+        adj = self.win.scrolled_window.get_vadjustment()
+        adj.set_value(self.pos)
+        self.win.scrolled_window.set_vadjustment(adj)
+        return False
 
     def create_action(self, name, callback, shortcuts=None):
         action = Gio.SimpleAction.new(name, None)
